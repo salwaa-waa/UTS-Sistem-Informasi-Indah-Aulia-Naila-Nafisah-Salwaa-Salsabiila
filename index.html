@@ -115,7 +115,7 @@ a{color:inherit;text-decoration:none}
 <!-- ============ HALAMAN CV ============ -->
 <div id="cv" class="cv" hidden>
   <div class="top">
-    <a href="#" class="back">← Semua CV</a>
+    <a href="#" class="back" data-id="">← Semua CV</a>
     <div class="switch" id="switch"></div>
     <button class="print" onclick="window.print()">Simpan PDF</button>
   </div>
@@ -207,8 +207,44 @@ function show(id) {
   document.title = "CV " + card.dataset.short;
 
   $("#switch").innerHTML = cards.map(c =>
-    `<a href="#${c.dataset.id}" style="--dot:${c.style.getPropertyValue("--a")}" ${c.dataset.id === id ? "aria-current=page" : ""}><i></i>${c.dataset.short}</a>`).join("");
+    `<a href="#${c.dataset.id}" data-id="${c.dataset.id}" style="--dot:${c.style.getPropertyValue("--a")}" ${c.dataset.id === id ? "aria-current=page" : ""}><i></i>${c.dataset.short}</a>`).join("");
 
   $("#paper").innerHTML = `
     <aside class="side">
-      <div class="avatar" data-initial="${initial}">${src ? `<img
+      <div class="avatar" data-initial="${initial}">${src ? `<img src="${src}" alt="Foto ${d.name}" onerror="this.remove()" />` : ""}</div>
+      <h1>${d.name}</h1>
+      <p class="major">Manajemen Pendidikan</p>
+      <p class="campus">UIN Syarif Hidayatullah Jakarta</p>
+      <ul class="contacts">${d.contacts.map(c => `<li>${icon(c[0])}<span class="t">${c[1]}</span></li>`).join("")}</ul>
+      <h2>${d.side.title}</h2>
+      <ul class="chips">${d.side.items.map(i => `<li>${i}</li>`).join("")}</ul>
+    </aside>
+    <div class="main">${d.sections.map(section).join("")}</div>`;
+}
+
+function go(id) {
+  if (DATA[id]) show(id);
+  else {
+    document.body.dataset.theme = "home";
+    $("#cv").hidden = true;
+    $("#home").hidden = false;
+    document.title = "CV Mahasiswi Manajemen Pendidikan";
+  }
+  try { history.replaceState(null, "", DATA[id] ? "#" + id : location.pathname + location.search); } catch (e) {}
+  scrollTo(0, 0);
+}
+
+/* klik nama / tombol pindah / kembali */
+document.addEventListener("click", e => {
+  const a = e.target.closest("a[data-id]");
+  if (!a) return;
+  e.preventDefault();
+  go(a.dataset.id);
+});
+
+/* kalau dibuka lewat link langsung, misal index.html#indah */
+go(location.hash.slice(1).toLowerCase());
+addEventListener("hashchange", () => go(location.hash.slice(1).toLowerCase()));
+</script>
+</body>
+</html>
