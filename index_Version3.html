@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Koleksi CV — Indah / Naila / Salwaa</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="site theme-default">
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <h1 class="site-title">Koleksi CV Mahasiswa</h1>
+      <nav class="topnav" aria-label="Navigasi utama">
+        <button class="nav-btn" data-target="home">Beranda</button>
+        <button class="nav-btn" data-target="cv-list">Daftar Nama</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap main" id="app">
+    <!-- HOME -->
+    <section id="home" class="view view-home active" aria-labelledby="home-title">
+      <h2 id="home-title" class="lead-title">Pilih nama untuk melihat CV</h2>
+      <p class="lead-sub">Tiga CV digabung di satu link. Warna monokrom berbeda untuk masing‑masing CV.</p>
+
+      <div class="card-grid" id="cv-cards" role="list">
+        <!-- cards rendered in static HTML for progressive enhancement -->
+        <button class="card profile-card" data-id="indah" role="listitem" aria-label="Buka CV Indah">
+          <img src="assets/indah.jpg" alt="" class="card-photo" onerror="this.style.opacity=0.45">
+          <div class="card-body">
+            <h3 class="card-name">Indah Aulia Puteri</h3>
+            <p class="card-role">Manajemen Pendidikan</p>
+          </div>
+        </button>
+
+        <button class="card profile-card" data-id="naila" role="listitem" aria-label="Buka CV Naila">
+          <img src="assets/naila.jpg" alt="" class="card-photo" onerror="this.style.opacity=0.45">
+          <div class="card-body">
+            <h3 class="card-name">Naila Nafisah</h3>
+            <p class="card-role">Manajemen Pendidikan</p>
+          </div>
+        </button>
+
+        <button class="card profile-card" data-id="salwaa" role="listitem" aria-label="Buka CV Salwaa">
+          <img src="assets/salwaa.jpg" alt="" class="card-photo" onerror="this.style.opacity=0.45">
+          <div class="card-body">
+            <h3 class="card-name">Salwaa Salsabiila Ramadhaani</h3>
+            <p class="card-role">Manajemen Pendidikan</p>
+          </div>
+        </button>
+      </div>
+    </section>
+
+    <!-- CV LIST -->
+    <section id="cv-list" class="view view-list" aria-hidden="true">
+      <h2>Daftar CV</h2>
+      <ul class="name-list" id="name-list">
+        <li><button class="link-like" data-id="indah">Indah Aulia Puteri</button></li>
+        <li><button class="link-like" data-id="naila">Naila Nafisah</button></li>
+        <li><button class="link-like" data-id="salwaa">Salwaa Salsabiila Ramadhaani</button></li>
+      </ul>
+    </section>
+
+    <!-- CV view -->
+    <section id="cv-view" class="view view-cv" aria-hidden="true">
+      <div class="cv-top">
+        <button id="back-btn" class="btn-ghost" aria-label="Kembali ke beranda">← Kembali</button>
+        <div id="cv-title" class="cv-header" role="region" aria-live="polite">
+          <img id="cv-photo" src="" alt="Foto profil" class="cv-photo" onerror="this.style.opacity=0.5">
+          <div>
+            <h2 id="cv-name">Nama</h2>
+            <p id="cv-role" class="muted">Manajemen Pendidikan</p>
+          </div>
+        </div>
+      </div>
+
+      <article id="cv-content" class="cv-content" tabindex="0">
+        <!-- CV akan di-render oleh scripts.js -->
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© <span id="year"></span> Koleksi CV — Semua informasi berdasarkan gambar CV yang dikirim.</p>
+    </div>
+  </footer>
+
+  <!-- core script (defer for progressive enhancement) -->
+  <script defer src="scripts.js"></script>
+</body>
+</html>
