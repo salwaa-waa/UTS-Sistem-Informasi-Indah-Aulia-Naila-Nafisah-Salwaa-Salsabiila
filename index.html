@@ -1,250 +1,533 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>CV Mahasiswi Manajemen Pendidikan</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
-<style>
-:root{--bg:#fdf5fa;--text:#4a3f5c;--muted:#8a7f9c;--accent:#b58bd9;--ink:#4b2f73;--soft:#f3e8fb;--soft2:#fbf4ff;--fd:"Fraunces",Georgia,serif;--fb:"Nunito",system-ui,sans-serif}
-[data-theme=salwaa]{--accent:#7b6fd8;--ink:#2b2570;--soft:#e9e6fb;--soft2:#f6f4ff;--bg:#f4f2ff}
-[data-theme=indah]{--accent:#e0518c;--ink:#6b1a40;--soft:#fde2ee;--soft2:#fff2f8;--bg:#fff3f8}
-[data-theme=naila]{--accent:#ee6a58;--ink:#6a2219;--soft:#ffe3dc;--soft2:#fff4f1;--bg:#fff4f0}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--fb);color:var(--text);background:var(--bg);line-height:1.6;min-height:100vh;overflow-x:hidden;transition:background .5s}
-a{color:inherit;text-decoration:none}
-[hidden]{display:none!important}
-:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:8px}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio & CV Manajemen Pendidikan</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #fce4ec 0%, #f3e5f5 50%, #e8f5e9 100%);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-/* beranda */
-.home{max-width:1100px;margin:0 auto;padding:72px 24px 48px;text-align:center}
-.kicker{font-weight:700;color:#a77bc9;margin-bottom:14px}
-.home h1{font-family:var(--fd);font-style:italic;font-weight:500;font-size:clamp(2.2rem,6vw,3.8rem);line-height:1.12;color:#5b3a7e}
-.sub{margin-top:16px;color:var(--muted);font-size:1.05rem}
-.arches{display:flex;justify-content:center;align-items:flex-end;flex-wrap:wrap;gap:36px;margin-top:64px}
-.arch{width:270px;display:block;transition:transform .35s}
-.arch:nth-child(2){margin-bottom:36px}
-.arch:hover{transform:translateY(-10px)}
-.frame{position:relative;width:100%;aspect-ratio:3/3.9;border-radius:999px 999px 32px 32px;background:var(--soft);border:7px solid #fff;box-shadow:0 0 0 2px var(--a),0 22px 40px -18px var(--a);overflow:hidden;display:grid;place-items:center}
-.frame::before,.avatar::before{content:attr(data-initial);font-family:var(--fd);font-size:5rem;font-weight:700;color:var(--a,var(--accent));opacity:.6;position:absolute}
-.avatar::before{font-size:4rem}
-.frame img,.avatar img{position:relative;width:100%;height:100%;object-fit:cover;object-position:center 22%;display:block}
-.arch h2{margin-top:22px;font-family:var(--fd);font-size:1.45rem;line-height:1.2;color:var(--ink)}
-.arch p{font-size:.92rem;color:var(--muted)}
-.arch .btn{display:inline-block;margin-top:14px;padding:8px 20px;border-radius:999px;background:var(--a);color:#fff;font-weight:700;font-size:.9rem}
-.foot{margin-top:72px;color:var(--muted);font-size:.9rem}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
 
-/* halaman cv */
-.cv{max-width:1080px;margin:0 auto;padding:24px 20px 64px}
-.top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:22px}
-.back,.switch a{padding:8px 16px;border-radius:999px;background:#fff;font-weight:700;box-shadow:0 6px 16px -10px var(--accent)}
-.back{color:var(--ink)}
-.switch{display:flex;gap:8px;flex-wrap:wrap}
-.switch a{display:inline-flex;align-items:center;gap:8px;font-size:.9rem;border:2px solid transparent}
-.switch i{width:10px;height:10px;border-radius:50%;background:var(--dot)}
-.switch a[aria-current]{border-color:var(--dot)}
-.print{font:700 .9rem var(--fb);cursor:pointer;padding:8px 18px;border-radius:999px;border:0;background:var(--accent);color:#fff}
-.paper{display:grid;grid-template-columns:320px 1fr;background:#fff;border-radius:36px;overflow:hidden;box-shadow:0 30px 60px -30px var(--accent),0 0 0 1px var(--soft)}
-.side{background:linear-gradient(180deg,var(--soft),var(--soft2));padding:40px 28px;text-align:center}
-.avatar{position:relative;width:168px;height:168px;margin:0 auto 22px;border-radius:50%;border:6px solid #fff;box-shadow:0 0 0 2px var(--accent),0 16px 30px -14px var(--accent);overflow:hidden;background:#fff;display:grid;place-items:center}
-.avatar img{object-position:center 25%}
-.side h1{font-family:var(--fd);font-size:1.6rem;line-height:1.2;color:var(--ink)}
-.major{margin-top:8px;font-weight:700;color:var(--accent)}
-.campus{font-size:.88rem;color:var(--muted)}
-.side h2{margin:30px 0 12px;font-family:var(--fd);font-size:1.1rem;color:var(--ink)}
-.contacts{list-style:none;text-align:left;display:grid;gap:10px;margin-top:26px}
-.contacts li{display:flex;gap:10px;font-size:.9rem;word-break:break-word}
-.ic{flex:none;width:30px;height:30px;border-radius:50%;background:#fff;color:var(--accent);display:grid;place-items:center}
-.ic svg{width:15px;height:15px}
-.contacts .t{padding-top:3px}
-.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;list-style:none}
-.chips li{padding:6px 13px;border-radius:999px;background:#fff;color:var(--ink);font-size:.85rem;font-weight:600}
-.main{padding:44px}
-.main section+section{margin-top:34px}
-.main h2{display:flex;align-items:center;gap:12px;font-family:var(--fd);font-size:1.4rem;color:var(--ink);margin-bottom:16px}
-.main h2::after{content:"";flex:1;height:2px;background:linear-gradient(90deg,var(--accent),transparent);opacity:.45}
-.timeline{list-style:none;position:relative;padding-left:26px}
-.timeline::before{content:"";position:absolute;left:6px;top:8px;bottom:8px;width:2px;background:var(--soft)}
-.timeline li{position:relative;display:flex;justify-content:space-between;gap:16px;padding:6px 0}
-.timeline li::before{content:"";position:absolute;left:-26px;top:14px;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--accent)}
-.when{flex:none;color:var(--accent);font-weight:700;font-size:.92rem;white-space:nowrap}
-.rows{list-style:none}
-.rows li{display:flex;justify-content:space-between;gap:16px;padding:7px 0;border-bottom:1px dashed var(--soft)}
-.bullets{list-style:none}
-.bullets li{position:relative;padding:5px 0 5px 24px}
-.bullets li::before{content:"";position:absolute;left:4px;top:14px;width:8px;height:8px;border-radius:50%;background:var(--accent)}
-.cards{display:grid;gap:14px}
-.card{padding:16px 18px;border-radius:20px;background:var(--soft2);border:1px solid var(--soft)}
-.card .head{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
-.card h3{font-size:1rem;color:var(--ink)}
-.card ul{list-style:none;margin-top:10px}
-.card li{position:relative;padding:3px 0 3px 20px;font-size:.93rem}
-.card li::before{content:"♡";position:absolute;left:0;color:var(--accent)}
+        body {
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            color: #333;
+            overflow-x: hidden;
+        }
 
-@media(max-width:860px){.paper{grid-template-columns:1fr;border-radius:28px}.main{padding:32px 24px}.arch:nth-child(2){margin-bottom:0}.top{justify-content:center}}
-@media(max-width:480px){.arch{width:240px}.timeline li,.rows li{flex-direction:column;gap:0}}
-@media print{body{background:#fff}.top{display:none}.paper{box-shadow:none}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
-</style>
+        /* --- LANDING PAGE --- */
+        #landing-page {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .header-title h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: #4a3b5c;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header-title p {
+            font-size: 1.1rem;
+            color: #6c5b7b;
+            margin-bottom: 40px;
+        }
+
+        .profiles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            width: 100%;
+            padding: 10px;
+        }
+
+        .profile-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .profile-card img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 4px solid #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .profile-card h3 {
+            font-size: 1.4rem;
+            color: #333;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .profile-card .major {
+            font-size: 0.9rem;
+            color: #7f6d8a;
+            margin-bottom: 20px;
+        }
+
+        .btn-view {
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: #fff;
+            background: #d81b60;
+            border: none;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(216, 27, 96, 0.3);
+        }
+
+        .profile-card:nth-child(1) .btn-view { background: linear-gradient(135deg, #ff758c, #ff7eb3); }
+        .profile-card:nth-child(2) .btn-view { background: linear-gradient(135deg, #a18cd1, #fbc2eb); }
+        .profile-card:nth-child(3) .btn-view { background: linear-gradient(135deg, #ff9a9e, #fecfef); color: #4a3b5c; }
+
+        .profile-card:hover .btn-view {
+            transform: scale(1.05);
+        }
+
+        /* --- CV CONTAINER --- */
+        .cv-container {
+            display: none;
+            max-width: 900px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 24px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+            overflow: hidden;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .cv-header {
+            padding: 40px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            position: relative;
+        }
+
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            backdrop-filter: blur(5px);
+            transition: var(--transition);
+        }
+
+        .back-btn:hover {
+            background: rgba(255,255,255,0.4);
+        }
+
+        .cv-header img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(255,255,255,0.8);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .cv-header-info h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+        }
+
+        .cv-header-info p {
+            font-size: 1.05rem;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+
+        .contact-mini {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 0.85rem;
+            opacity: 0.95;
+        }
+
+        .contact-mini span i {
+            margin-right: 5px;
+        }
+
+        .cv-body {
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .cv-body { grid-template-columns: 1fr; }
+            .cv-header { flex-direction: column; text-align: center; }
+            .contact-mini { justify-content: center; }
+        }
+
+        .cv-sidebar, .cv-main {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .section-box h4 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #eee;
+            font-weight: 600;
+        }
+
+        .section-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .section-box li {
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .section-box li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .timeline-item {
+            margin-bottom: 15px;
+        }
+
+        .timeline-item .title {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .timeline-item .meta {
+            font-size: 0.82rem;
+            color: #666;
+            margin-bottom: 3px;
+        }
+
+        /* --- THEME 1: SALWAA (Soft Rose / Pink) --- */
+        #cv-salwaa .cv-header { background: linear-gradient(135deg, #1b2a4a, #2c3e50); }
+        #cv-salwaa .section-box h4 { color: #1b2a4a; border-color: #fce4ec; }
+        #cv-salwaa .section-box li::before { color: #ff758c; }
+
+        /* --- THEME 2: INDAH (Lavender / Purple) --- */
+        #cv-indah .cv-header { background: linear-gradient(135deg, #4a2e5d, #6b4c82); }
+        #cv-indah .section-box h4 { color: #4a2e5d; border-color: #f3e5f5; }
+        #cv-indah .section-box li::before { color: #a18cd1; }
+
+        /* --- THEME 3: NAILA (Peach / Warm Coral) --- */
+        #cv-naila .cv-header { background: linear-gradient(135deg, #5c3a21, #8c5830); }
+        #cv-naila .section-box h4 { color: #5c3a21; border-color: #fff3e0; }
+        #cv-naila .section-box li::before { color: #ff9a9e; }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.85rem;
+            color: #777;
+        }
+    </style>
 </head>
-<body data-theme="home">
+<body>
 
-<!-- ============ BERANDA ============ -->
-<main id="home" class="home">
-  <p class="kicker">UIN Syarif Hidayatullah Jakarta</p>
-  <h1>CV Mahasiswi<br />Manajemen Pendidikan</h1>
-  <p class="sub">Pilih satu nama untuk membuka CV-nya.</p>
+    <!-- LANDING PAGE -->
+    <div id="landing-page">
+        <div class="header-title">
+            <h1>Portofolio & CV Mahasiswa</h1>
+            <p>Program Studi Manajemen Pendidikan • UIN Syarif Hidayatullah Jakarta</p>
+        </div>
+        <div class="profiles-grid">
+            <!-- Salwaa Card -->
+            <div class="profile-card" onclick="openCV('salwaa')">
+                <img src="watermarked_images_salwaa.jpeg" alt="Salwaa Salsabiila Ramadhaani">
+                <h3>Salwaa Salsabiila R.</h3>
+                <div class="major">Manajemen Pendidikan</div>
+                <button class="btn-view">Lihat CV</button>
+            </div>
 
-  <nav class="arches" id="arches">
-    <!-- FOTO DIATUR DI SINI (src). Taruh file foto sejajar dengan index.html -->
-    <a class="arch" href="#salwaa" data-id="salwaa" data-short="Salwaa" style="--a:#7b6fd8;--soft:#e9e6fb;--ink:#2b2570">
-      <div class="frame" data-initial="S"><img src="images_salwaa.jpeg" alt="Foto Salwaa" onerror="this.remove()" /></div>
-      <h2>Salwaa Salsabiila Ramadhaani</h2><p>Manajemen Pendidikan</p><span class="btn">Lihat CV</span>
-    </a>
-    <a class="arch" href="#indah" data-id="indah" data-short="Indah" style="--a:#e0518c;--soft:#fde2ee;--ink:#6b1a40">
-      <div class="frame" data-initial="I"><img src="images_indah.jpeg" alt="Foto Indah" onerror="this.remove()" /></div>
-      <h2>Indah Aulia Puteri</h2><p>Manajemen Pendidikan</p><span class="btn">Lihat CV</span>
-    </a>
-    <a class="arch" href="#naila" data-id="naila" data-short="Naila" style="--a:#ee6a58;--soft:#ffe3dc;--ink:#6a2219">
-      <div class="frame" data-initial="N"><img src="images_naila.jpeg" alt="Foto Naila" onerror="this.remove()" /></div>
-      <h2>Naila Nafisah</h2><p>Manajemen Pendidikan</p><span class="btn">Lihat CV</span>
-    </a>
-  </nav>
-  <p class="foot">dibuat dengan 🎀 untuk portofolio kami</p>
-</main>
+            <!-- Indah Card -->
+            <div class="profile-card" onclick="openCV('indah')">
+                <img src="watermarked_images_indah.jpeg" alt="Indah Aulia Puteri">
+                <h3>Indah Aulia Puteri</h3>
+                <div class="major">Manajemen Pendidikan</div>
+                <button class="btn-view">Lihat CV</button>
+            </div>
 
-<!-- ============ HALAMAN CV ============ -->
-<div id="cv" class="cv" hidden>
-  <div class="top">
-    <a href="#" class="back" data-id="">← Semua CV</a>
-    <div class="switch" id="switch"></div>
-    <button class="print" onclick="window.print()">Simpan PDF</button>
-  </div>
-  <article class="paper" id="paper"></article>
-</div>
+            <!-- Naila Card -->
+            <div class="profile-card" onclick="openCV('naila')">
+                <img src="watermarked_images_naila.jpeg" alt="Naila Nafisah">
+                <h3>Naila Nafisah</h3>
+                <div class="major">Manajemen Pendidikan</div>
+                <button class="btn-view">Lihat CV</button>
+            </div>
+        </div>
+    </div>
 
-<script>
-/* ===== ISI CV (edit di sini kalau ada yang mau diubah) ===== */
-const DATA = {
-  salwaa: {
-    name: "Salwaa Salsabiila Ramadhaani",
-    contacts: [["mail","slwa.waa16@gmail.com"],["pin","Kutabumi, Kec. Ps. Kemis, Kabupaten Tangerang, Banten"],["phone","+62 889-0609-0456"]],
-    side: { title: "Keahlian", items: ["Manajemen Waktu & Perencanaan","Komunikasi yang Baik","Kerja Tim & Kepemimpinan","Event Coordination","Basic Editing"] },
-    sections: [
-      { title:"Tentang Saya", kind:"text", items:"Mahasiswa Manajemen Pendidikan semester 3 di UIN Syarif Hidayatullah Jakarta yang aktif dalam kegiatan sosial dan proyek sukarelawan (volunteer). Memiliki kemampuan adaptasi yang cepat, komunikasi yang baik, serta antusias yang tinggi untuk mempelajari hal-hal baru. Berkomitmen untuk berkontribusi secara positif dan mengembangkan keterampilan profesi melalui berbagai kegiatan dan kesempatan baru." },
-      { title:"Pendidikan", kind:"timeline", items:[["R.A Mufidah","2011–2013"],["MIS Sabilussalam","2013–2019"],["SMP IT Al-Qudwah","2019–2022"],["SMA IT Ummul Quro","2022–2025"],["UIN Syarif Hidayatullah Jakarta","2025–sekarang"]] },
-      { title:"Prestasi", kind:"bullets", items:["Juara 1 Fashion Show Tingkat Kabupaten Tangerang","Juara 2 Cerdas Cermat Antar Sekolah Dasar","Juara 2 Tari Saman Tingkat Kabupaten Tasikmalaya"] },
-      { title:"Pengalaman", kind:"rows", items:[["Anggota Aktif Klub Memanah","2019–2021"],["Anggota Aktif Seni Tari","2020–2022"],["Ketua Asrama","2021/2022"],["Panitia LDKS","2022"],["Ketua Klub Memanah","2023"],["Anggota Aktif Bela Diri","2024"],["Anggota OSIS Divisi Bapenta","2023/2024"],["Panitia Acara Language Fair","2023"],["Panitia Maulid Nabi","2023"],["Panitia Acara Usbu’ Funny","2024"],["Panitia Sidang Kitab Kuning","2024"],["Panitia Kelulusan Kelas 12","2024"],["Sekretaris","2024/2025"]] },
-      { title:"Pengalaman Lainnya", kind:"rows", items:[["Pengabdian Masyarakat – Khidmah","2024"],["Mengajar di SDN Sadananya","2024"],["Mengajar di MI Cikatomas","2024"],["Mengajar di SDIT ASDU","2025"],["Volunteer – Satu Langkah","2026"],["Volunteer – Kreasi Semesta","2026"]] }
-    ]
-  },
-  indah: {
-    name: "Indah Aulia Puteri",
-    contacts: [["cake","Jakarta, 3 April 2007"],["pin","Jl. Intisari Raya RT.003/09 Kalisari, Pasar Rebo, Jakarta Timur"],["phone","0881-0257-06724"],["mail","Indahap.347@gmail.com"]],
-    side: { title: "Skill", items: ["Public Speaking","Problem Solving","Leadership"] },
-    sections: [
-      { title:"Tentang Saya", kind:"text", items:"Mahasiswi Manajemen Pendidikan UIN Syarif Hidayatullah Jakarta. Mampu mengembangkan keterampilan teknis dalam bidang pengembangan, mampu memimpin tim, dan mampu merumuskan solusi untuk masalah pada kegiatan." },
-      { title:"Pendidikan", kind:"timeline", items:[["MIN 18 Jakarta","2013–2019"],["SMPN 184 Jakarta","2019–2022"],["SMAN 98 Jakarta","2022–2025"],["UIN Syarif Hidayatullah Jakarta","2025–sekarang"]] },
-      { title:"Organisasi", kind:"bullets", items:["Staf Departemen Kemahasiswaan dan Sumber Daya (HMPS Manajemen Pendidikan) 2026","Staf Biro Kaderisasi (PMII Rayon Manajemen Pendidikan) 2026","Sekretaris Karang Taruna RT.003/09 Kalisari 2025–sekarang"] },
-      { title:"Pengalaman & Prestasi", kind:"bullets", items:["Siswa terpilih dalam Pelatihan MTQ MIN","Juara Umum Pasukan Pengibar Se-Jabodetabek 2020","Juara Pasukan Pengibar Bendera Terbaik Se-Jabodetabek 2020","Juara Pasukan Pramuka Terbaik Se-Jabodetabek 2019","Juara 1 Lomba Saritilawah 2024","Lomba bernyanyi bahasa Jerman se-Jabodetabek 2024","Juara 1 Lomba Hadroh Se-Jabodetabek 2025","Juara 1 Lomba Hadroh Se-DKI Jakarta 2026","Ketua pelantikan & RAKER pengurus PMII Rayon Manajemen Pendidikan","Mentor PBAK Prodi Manajemen Pendidikan 2026","Moderator pengukuhan HIPMI Banten 2026","EO acara Future Scholars Development IKA PMII Cabang Ciputat","PIC fascia divisi UMKM acara HUT RI ke-81 di Monas","Relawan dan panitia divisi acara program Sahabat Mendidik batch 5 PMII KOMFAKTAR","Motivator dalam sharing session di SMAN 98 Jakarta 2025","Ketua Pelaksana HUT RI Karang Taruna RT.003/09 Kalisari 2024–2025","Panitia divisi acara MAPABA Luar Biasa (MALUBI) 2025","Usaha F&B cheesecuit dan Samrol","Panitia divisi acara dalam Festival Aksi Kampanye 16 HAKTP memperingati Hari Anti Kekerasan Terhadap Perempuan oleh KOPRI KOMFAKTAR","Peserta SIG (Sekolah Islam Gender) KOPRI KOMFAKTAR 2025"] }
-    ]
-  },
-  naila: {
-    name: "Naila Nafisah",
-    contacts: [["phone","081385283569"],["mail","nailanaf21@gmail.com"],["pin","Kemanggisan, Grogol, Jakarta Barat"]],
-    side: { title: "Kemampuan", items: ["Pengolahan Data dan Dokumen","Penyusunan Proposal, Surat-menyurat Resmi & Notulen Rapat","Komunikasi dan Negosiasi","Microsoft Office"] },
-    sections: [
-      { title:"Profil", kind:"text", items:"Mahasiswa Manajemen Pendidikan UIN Jakarta yang adaptif dan berorientasi pada hasil. Memiliki pengalaman nyata dalam manajemen operasional acara, administrasi organisasi sebagai Sekretaris, dan pengarahan konsep visual kreatif. Menguasai keterampilan komunikasi, kolaborasi lintas tim, serta penyusunan jadwal kerja. Siap mengembangkan potensi di bidang tata kelola dan pengembangan organisasi." },
-      { title:"Pendidikan", kind:"timeline", items:[["SDN Palmerah 19 Pagi","2013–2019"],["MTsN 12 Jakarta","2019–2022"],["MAN 22 Jakarta Barat","2022–2025"],["UIN Syarif Hidayatullah Jakarta","2025–sekarang"]] },
-      { title:"Pengalaman", kind:"cards", items:[
-        ["Juara Harapan 2 OSN Bidang IPA Tingkat Kecamatan","2018"],
-        ["Staf Divisi Perkap · Hari Guru MAN 22 Jakarta","November 2023"],
-        ["Sekretaris Ekstrakurikuler Ratoh Jaroe · MAN 22 Jakarta","Des 2023 – Des 2024",[
-          "Mengelola seluruh administrasi, dokumentasi, dan surat-menyurat internal maupun eksternal untuk mendukung operasional tim.",
-          "Mengatur timeline persiapan lomba, menghasilkan tingkat partisipasi aktif tim yang tinggi hingga sukses mengikuti berbagai kompetisi dalam 1 tahun.",
-          "Mengoordinasikan persiapan performa tim sebagai pengisi acara resmi pada prosesi Wisuda Boarding School di Asrama Haji Jakarta.",
-          "Meraih Juara Harapan 3 & Juara Best Supporter pada kompetisi yang diadakan oleh MAN 10 Jakarta.",
-          "Meraih Juara Harapan 3 pada ajang Lomba Ratoh Jaroe di Living Plaza Puri."]],
-        ["Staf Divisi Desain · Gathering Night MAN 22 Jakarta","Februari 2024"],
-        ["Staf Divisi Acara · Campus Expo MAN 22 Jakarta","Desember 2025"],
-        ["Staf Divisi Konsumsi · PBAK Manajemen Pendidikan UIN Syarif Hidayatullah Jakarta","Agustus 2026"]
-      ] }
-    ]
-  }
-};
+    <!-- ==================== CV 1: SALWAA ==================== -->
+    <div id="cv-salwaa" class="cv-container">
+        <div class="cv-header">
+            <button class="back-btn" onclick="goHome()"><i class="fa fa-arrow-left"></i> Kembali</button>
+            <img src="watermarked_img_12632451198133148945.jpg" alt="Salwaa">
+            <div class="cv-header-info">
+                <h2>Salwaa Salsabiila Ramadhaani</h2>
+                <p>Manajemen Pendidikan</p>
+                <div class="contact-mini">
+                    <span><i class="fa fa-envelope"></i> slwa.waal16@gmail.com</span>
+                    <span><i class="fa fa-phone"></i> +62 889-0609-0456</span>
+                    <span><i class="fa fa-map-marker-alt"></i> Tangerang, Banten</span>
+                </div>
+            </div>
+        </div>
+        <div class="cv-body">
+            <div class="cv-sidebar">
+                <div class="section-box">
+                    <h4>Tentang Saya</h4>
+                    <p style="font-size: 0.9rem; line-height: 1.6;">Mahasiswi Manajemen Pendidikan semester 3 di UIN Syarif Hidayatullah Jakarta yang aktif dalam kegiatan sosial dan proyek sukarelawan (volunteer). Berkomitmen untuk berkontribusi secara positif dan mengembangkan keterampilan profesional.</p>
+                </div>
+                <div class="section-box">
+                    <h4>Keahlian</h4>
+                    <ul>
+                        <li>Manajemen Waktu & Perencanaan</li>
+                        <li>Komunikasi yang Baik</li>
+                        <li>Kerja Tim & Kepemimpinan</li>
+                        <li>Event Coordination</li>
+                        <li>Basic Editing</li>
+                    </ul>
+                </div>
+                <div class="section-box">
+                    <h4>Prestasi</h4>
+                    <ul>
+                        <li>Juara 1 Fashion Show Tingkat Kabupaten Tangerang</li>
+                        <li>Juara 2 Cerdas Cermat Antar Sekolah Dasar</li>
+                        <li>Juara 2 Tari Saman Tingkat Kabupaten Tasikmalaya</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="cv-main">
+                <div class="section-box">
+                    <h4>Pendidikan</h4>
+                    <div class="timeline-item"><div class="title">UIN Syarif Hidayatullah Jakarta</div><div class="meta">2025 - Sekarang</div></div>
+                    <div class="timeline-item"><div class="title">SMA IT Ummul Quro</div><div class="meta">2022 - 2025</div></div>
+                    <div class="timeline-item"><div class="title">SMP IT Al-Qudwah</div><div class="meta">2019 - 2022</div></div>
+                    <div class="timeline-item"><div class="title">MIS Sabilussalam & R.A Mufidah</div><div class="meta">2011 - 2019</div></div>
+                </div>
+                <div class="section-box">
+                    <h4>Pengalaman Organisasi & Kepanitiaan</h4>
+                    <ul>
+                        <li>Ketua Asrama (2021/2022)</li>
+                        <li>Ketua Klub Memanah (2023) & Panitia LDKS (2022)</li>
+                        <li>Anggota Osis Divisi Bapenta (2023/2024)</li>
+                        <li>Panitia Acara Language Fair & Maulid Nabi (2023)</li>
+                        <li>Panitia Sidang Kitab Kuning & Kelulusan Kelas 12 (2024)</li>
+                        <li>Sekretaris (2024/2025)</li>
+                    </ul>
+                </div>
+                <div class="section-box">
+                    <h4>Pengalaman Lainnya & Mengajar</h4>
+                    <ul>
+                        <li>Pengabdian Masyarakat - Khidmah (2024)</li>
+                        <li>Mengajar di SDN Sadananya & MI Cikatomas (2024)</li>
+                        <li>Mengajar di SDIT ASDU (2025)</li>
+                        <li>Volunteer - Satu Langkah & Kreasi Semesta (2026)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
-/* ===== IKON ===== */
-const IC = {
-  mail:'<path d="M4 6h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1Zm0 1.5 8 5.5 8-5.5"/>',
-  phone:'<path d="M6.6 3h3l1.4 4-2 1.3a11 11 0 0 0 5.700 5.700l1.300-2 4 1.400v3a2 2 0 0 1-2.200 2A15.500 15.500 0 0 1 4.600 5.200 2 2 0 0 1 6.600 3Z"/>',
-  pin:'<path d="M12 21s7-6.100 7-11.200A7 7 0 0 0 5 9.800C5 14.900 12 21 12 21Z"/><circle cx="12" cy="10" r="2.400"/>',
-  cake:'<path d="M4 20h16v-6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v6Zm2-8V9m6 3V9m6 3V9"/>'
-};
-const icon = n => `<span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${IC[n]}</svg></span>`;
+    <!-- ==================== CV 2: INDAH ==================== -->
+    <div id="cv-indah" class="cv-container">
+        <div class="cv-header">
+            <button class="back-btn" onclick="goHome()"><i class="fa fa-arrow-left"></i> Kembali</button>
+            <img src="watermarked_img_12260635240365502258.jpg" alt="Indah">
+            <div class="cv-header-info">
+                <h2>Indah Aulia Puteri</h2>
+                <p>Tempat, Tanggal Lahir: Jakarta, 3 April 2007</p>
+                <div class="contact-mini">
+                    <span><i class="fa fa-envelope"></i> indahap.347@gmail.com</span>
+                    <span><i class="fa fa-phone"></i> 0881-0257-0674</span>
+                    <span><i class="fa fa-map-marker-alt"></i> Kalisari, Pasar Rebo, Jaktim</span>
+                </div>
+            </div>
+        </div>
+        <div class="cv-body">
+            <div class="cv-sidebar">
+                <div class="section-box">
+                    <h4>Profil Singkat</h4>
+                    <p style="font-size: 0.9rem; line-height: 1.6;">Mahasiswi Manajemen Pendidikan UIN Syarif Hidayatullah Jakarta. Mampu mengembangkan keterampilan teknis dalam bidang pengembangan, memimpin tim, dan merumuskan solusi.</p>
+                </div>
+                <div class="section-box">
+                    <h4>Keahlian</h4>
+                    <ul>
+                        <li>Public Speaking</li>
+                        <li>Problem Solving</li>
+                        <li>Leadership</li>
+                    </ul>
+                </div>
+                <div class="section-box">
+                    <h4>Organisasi</h4>
+                    <ul>
+                        <li>Staf Departemen Kemahasiswaan & SDM (HMPS MP 2026)</li>
+                        <li>Staf Biro Kaderisasi PMII Rayon MP (2026)</li>
+                        <li>Sekretaris Karang Taruna RT.003/09 Kalisari (2025-Sekarang)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="cv-main">
+                <div class="section-box">
+                    <h4>Pendidikan</h4>
+                    <div class="timeline-item"><div class="title">UIN Syarif Hidayatullah Jakarta</div><div class="meta">2025 - Sekarang</div></div>
+                    <div class="timeline-item"><div class="title">SMAN 98 Jakarta</div><div class="meta">2022 - 2025</div></div>
+                    <div class="timeline-item"><div class="title">SMPN 18 & MIN 18 Jakarta</div><div class="meta">2013 - 2022</div></div>
+                </div>
+                <div class="section-box">
+                    <h4>Pengalaman & Prestasi Pilihan</h4>
+                    <ul>
+                        <li>Juara Umum Pasukan Pengibar Se-Jabodetabek (2020)</li>
+                        <li>Juara 1 Lomba Saritilawah (2024) & Lomba Hadroh Se-Jabodetabek (2025) & DKI Jakarta (2026)</li>
+                        <li>Ketua Pelaksana & RAKER PMII Rayon Manajemen Pendidikan</li>
+                        <li>Mentor PBAK Prodi Manajemen Pendidikan (2026)</li>
+                        <li>Moderator Pengukuhan HIPMI Banten (2026)</li>
+                        <li>Ketua Pelaksana HUT RI Karang Taruna Kalisari (2024-2025)</li>
+                        <li>Usaha F&B Cheesecuit dan Samrol</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
-/* ===== RENDER ===== */
-const $ = s => document.querySelector(s);
-const cards = [...document.querySelectorAll(".arch")];
+    <!-- ==================== CV 3: NAILA ==================== -->
+    <div id="cv-naila" class="cv-container">
+        <div class="cv-header">
+            <button class="back-btn" onclick="goHome()"><i class="fa fa-arrow-left"></i> Kembali</button>
+            <img src="watermarked_img_9409748192452325867.jpg" alt="Naila">
+            <div class="cv-header-info">
+                <h2>Naila Nafisah</h2>
+                <p>Manajemen Pendidikan</p>
+                <div class="contact-mini">
+                    <span><i class="fa fa-envelope"></i> nailanaf21@gmail.com</span>
+                    <span><i class="fa fa-phone"></i> 081385283569</span>
+                    <span><i class="fa fa-map-marker-alt"></i> Kemanggisan Grogol, Jakarta Barat</span>
+                </div>
+            </div>
+        </div>
+        <div class="cv-body">
+            <div class="cv-sidebar">
+                <div class="section-box">
+                    <h4>Profil</h4>
+                    <p style="font-size: 0.9rem; line-height: 1.6;">Mahasiswa Manajemen Pendidikan UIN Jakarta yang adaptif dan berorientasi hasil. Berpengalaman dalam manajemen operasional acara, administrasi organisasi sebagai sekretaris, dan pengarahan konsep visual kreatif.</p>
+                </div>
+                <div class="section-box">
+                    <h4>Kemampuan</h4>
+                    <ul>
+                        <li>Pengolahan Data dan Dokumen</li>
+                        <li>Penyusunan Proposal, Surat Resmi & Notulen</li>
+                        <li>Komunikasi & Negosiasi</li>
+                        <li>Microsoft Office</li>
+                    </ul>
+                </div>
+                <div class="section-box">
+                    <h4>Pendidikan</h4>
+                    <div class="timeline-item"><div class="title">UIN Syarif Hidayatullah Jakarta</div><div class="meta">2025 - Sekarang</div></div>
+                    <div class="timeline-item"><div class="title">MAN 22 Jakarta Barat</div><div class="meta">2022 - 2025</div></div>
+                    <div class="timeline-item"><div class="title">MTsN 12 & SDN Palmerah 19</div><div class="meta">2013 - 2022</div></div>
+                </div>
+            </div>
+            <div class="cv-main">
+                <div class="section-box">
+                    <h4>Pengalaman & Prestasi</h4>
+                    <ul>
+                        <li>Juara Harapan 2 OSN Bidang IPA Tingkat Kecamatan (2018)</li>
+                        <li>Staf Divisi Perkap | Hari Guru MAN 22 Jakarta (2023)</li>
+                        <li>Sekretaris Ekstrakurikuler Ratoh Jaroe MAN 22 Jakarta (Des 2023 - Des 2024): Mengelola administrasi, surat-menyurat, timeline, & performa tim di Asrama Haji.</li>
+                        <li>Meraih Juara Harapan 3 & Best Supporter MAN 10 Jakarta</li>
+                        <li>Staf Divisi Desain | Gathering Night MAN 22 Jakarta (Februari 2024)</li>
+                        <li>Staf Divisi Acara | Campus Expo MAN 22 Jakarta (Desember 2025)</li>
+                        <li>Staf Divisi Konsumsi | PBAK Manajemen Pendidikan UIN Jakarta (Agustus 2026)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
-function section(s) {
-  const h = `<h2>${s.title}</h2>`;
-  if (s.kind === "text") return `<section>${h}<p>${s.items}</p></section>`;
-  if (s.kind === "timeline") return `<section>${h}<ul class="timeline">${s.items.map(i => `<li><strong>${i[0]}</strong><span class="when">${i[1]}</span></li>`).join("")}</ul></section>`;
-  if (s.kind === "rows") return `<section>${h}<ul class="rows">${s.items.map(i => `<li><span>${i[0]}</span><span class="when">${i[1]}</span></li>`).join("")}</ul></section>`;
-  if (s.kind === "bullets") return `<section>${h}<ul class="bullets">${s.items.map(i => `<li>${i}</li>`).join("")}</ul></section>`;
-  if (s.kind === "cards") return `<section>${h}<div class="cards">${s.items.map(i => `<div class="card"><div class="head"><h3>${i[0]}</h3><span class="when">${i[1]}</span></div>${i[2] ? `<ul>${i[2].map(b => `<li>${b}</li>`).join("")}</ul>` : ""}</div>`).join("")}</div></section>`;
-  return "";
-}
+    <footer>
+        <p>&copy; 2026 Portofolio Manajemen Pendidikan • Dibuat dengan penuh estetika 🌸</p>
+    </footer>
 
-function show(id) {
-  const card = cards.find(c => c.dataset.id === id);
-  const d = DATA[id];
-  const src = card.querySelector("img")?.getAttribute("src") || "";
-  const initial = card.querySelector(".frame").dataset.initial;
+    <!-- JAVASCRIPT INTERACTIVE -->
+    <script>
+        function openCV(name) {
+            document.getElementById('landing-page').style.display = 'none';
+            document.querySelectorAll('.cv-container').forEach(el => el.style.display = 'none');
+            document.getElementById('cv-' + name).style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
 
-  document.body.dataset.theme = id;
-  $("#home").hidden = true;
-  $("#cv").hidden = false;
-  document.title = "CV " + card.dataset.short;
-
-  $("#switch").innerHTML = cards.map(c =>
-    `<a href="#${c.dataset.id}" data-id="${c.dataset.id}" style="--dot:${c.style.getPropertyValue("--a")}" ${c.dataset.id === id ? "aria-current=page" : ""}><i></i>${c.dataset.short}</a>`).join("");
-
-  $("#paper").innerHTML = `
-    <aside class="side">
-      <div class="avatar" data-initial="${initial}">${src ? `<img src="${src}" alt="Foto ${d.name}" onerror="this.remove()" />` : ""}</div>
-      <h1>${d.name}</h1>
-      <p class="major">Manajemen Pendidikan</p>
-      <p class="campus">UIN Syarif Hidayatullah Jakarta</p>
-      <ul class="contacts">${d.contacts.map(c => `<li>${icon(c[0])}<span class="t">${c[1]}</span></li>`).join("")}</ul>
-      <h2>${d.side.title}</h2>
-      <ul class="chips">${d.side.items.map(i => `<li>${i}</li>`).join("")}</ul>
-    </aside>
-    <div class="main">${d.sections.map(section).join("")}</div>`;
-}
-
-function go(id) {
-  if (DATA[id]) show(id);
-  else {
-    document.body.dataset.theme = "home";
-    $("#cv").hidden = true;
-    $("#home").hidden = false;
-    document.title = "CV Mahasiswi Manajemen Pendidikan";
-  }
-  try { history.replaceState(null, "", DATA[id] ? "#" + id : location.pathname + location.search); } catch (e) {}
-  scrollTo(0, 0);
-}
-
-/* klik nama / tombol pindah / kembali */
-document.addEventListener("click", e => {
-  const a = e.target.closest("a[data-id]");
-  if (!a) return;
-  e.preventDefault();
-  go(a.dataset.id);
-});
-
-/* kalau dibuka lewat link langsung, misal index.html#indah */
-go(location.hash.slice(1).toLowerCase());
-addEventListener("hashchange", () => go(location.hash.slice(1).toLowerCase()));
-</script>
+        function goHome() {
+            document.querySelectorAll('.cv-container').forEach(el => el.style.display = 'none');
+            document.getElementById('landing-page').style.display = 'flex';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
