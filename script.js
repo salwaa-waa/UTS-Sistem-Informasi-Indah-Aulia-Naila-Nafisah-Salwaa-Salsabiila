@@ -5,7 +5,7 @@ const PEOPLE = [
     name: "Salwaa Salsabiila Ramadhaani",
     short: "Salwaa",
     major: "Manajemen Pendidikan",
-    photo: "img/salwaa.jpg",
+    photo: "images_salwaa.jpeg",
     theme: { accent: "#7b6fd8", ink: "#2b2570", soft: "#e9e6fb" },
     contacts: [
       { icon: "mail", text: "slwa.waa16@gmail.com" },
@@ -78,7 +78,7 @@ const PEOPLE = [
     name: "Indah Aulia Puteri",
     short: "Indah",
     major: "Manajemen Pendidikan",
-    photo: "img/indah.jpg",
+    photo: "images_indah.jpeg",
     theme: { accent: "#e0518c", ink: "#6b1a40", soft: "#fde2ee" },
     contacts: [
       { icon: "cake", text: "Jakarta, 3 April 2007" },
@@ -143,7 +143,7 @@ const PEOPLE = [
     name: "Naila Nafisah",
     short: "Naila",
     major: "Manajemen Pendidikan",
-    photo: "img/naila.jpg",
+    photo: "images_naila.jpeg",
     theme: { accent: "#ee6a58", ink: "#6a2219", soft: "#ffe3dc" },
     contacts: [
       { icon: "phone", text: "081385283569" },
