@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CV Mahasiswi Manajemen Pendidikan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-theme="home">
+
+  <!-- BERANDA -->
+  <main id="home" class="home">
+    <header class="home-head">
+      <p class="home-kicker">UIN Syarif Hidayatullah Jakarta</p>
+      <h1>CV Mahasiswi<br />Manajemen Pendidikan</h1>
+      <p class="home-sub">Pilih satu nama untuk membuka CV-nya.</p>
+    </header>
+    <nav class="arches" aria-label="Daftar CV" id="arches"></nav>
+    <footer class="home-foot">dibuat dengan 🎀 untuk portofolio kami</footer>
+  </main>
+
+  <!-- HALAMAN CV -->
+  <div id="cv-view" class="cv-view" hidden>
+    <div class="topbar">
+      <a href="#" class="back">← Semua CV</a>
+      <div class="switch" id="switch"></div>
+      <button type="button" class="print" id="print-btn">Simpan PDF</button>
+    </div>
+    <article class="paper" id="paper"></article>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
