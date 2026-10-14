@@ -7,317 +7,8 @@
     <!-- Google Fonts & FontAwesome -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        body {
-            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
-            color: #333;
-            min-height: 100vh;
-        }
-
-        /* --- BERANDA STYLING --- */
-        #beranda {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 40px 20px;
-            text-align: center;
-        }
-
-        .hero-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
-            color: #d81b60;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
-        .hero-subtitle {
-            font-size: 1.1rem;
-            color: #666;
-            margin-bottom: 40px;
-            max-width: 600px;
-        }
-
-        .profiles-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            max-width: 1000px;
-            width: 100%;
-        }
-
-        .profile-card {
-            background: white;
-            border-radius: 20px;
-            padding: 30px 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: var(--transition);
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            border: 2px solid transparent;
-        }
-
-        .profile-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(216, 27, 96, 0.15);
-        }
-
-        .profile-card.salwaa:hover { border-color: #81c784; }
-        .profile-card.indah:hover { border-color: #f48fb1; }
-        .profile-card.naila:hover { border-color: #ba68c8; }
-
-        .profile-img {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 20px;
-            border: 4px solid #fce4ec;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .profile-name {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 5px;
-        }
-
-        .profile-role {
-            font-size: 0.9rem;
-            color: #7f8c8d;
-            margin-bottom: 20px;
-        }
-
-        .btn-view {
-            padding: 10px 25px;
-            border-radius: 25px;
-            border: none;
-            font-weight: 500;
-            cursor: pointer;
-            color: white;
-            transition: var(--transition);
-            font-size: 0.9rem;
-        }
-
-        .card-salwaa .btn-view { background: linear-gradient(135deg, #81c784, #4caf50); }
-        .card-indah .btn-view { background: linear-gradient(135deg, #f48fb1, #e91e63); }
-        .card-naila .btn-view { background: linear-gradient(135deg, #ba68c8, #9c27b0); }
-
-        .btn-view:hover {
-            opacity: 0.9;
-            transform: scale(1.05);
-        }
-
-        /* --- CV VIEW CONTAINER --- */
-        .cv-section {
-            display: none;
-            padding: 40px 20px;
-            max-width: 900px;
-            margin: 0 auto;
-            animation: fadeIn 0.5s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 18px;
-            background: white;
-            border: none;
-            border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            cursor: pointer;
-            font-weight: 500;
-            margin-bottom: 25px;
-            transition: var(--transition);
-        }
-
-        .back-btn:hover {
-            background: #f8f9fa;
-            transform: translateX(-3px);
-        }
-
-        /* CV Box Template */
-        .cv-container {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-            overflow: hidden;
-        }
-
-        /* --- THEME 1: SALWAA (Sage Green & Navy Elegant) --- */
-        .theme-salwaa .cv-header {
-            background: linear-gradient(135deg, #2e5a44, #1e3d2b);
-            color: white;
-            padding: 40px;
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-        .theme-salwaa .cv-badge { background: #81c784; color: #1e3d2b; }
-        .theme-salwaa h2, .theme-salwaa h3 { color: #2e5a44; }
-        .theme-salwaa .cv-body { border-top: 5px solid #81c784; }
-
-        /* --- THEME 2: INDAH (Rose Pink & Soft Peach) --- */
-        .theme-indah .cv-header {
-            background: linear-gradient(135deg, #ad1457, #880e4f);
-            color: white;
-            padding: 40px;
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-        .theme-indah .cv-badge { background: #f48fb1; color: #880e4f; }
-        .theme-indah h2, .theme-indah h3 { color: #ad1457; }
-        .theme-indah .cv-body { border-top: 5px solid #f48fb1; }
-
-        /* --- THEME 3: NAILA (Lilac & Lavender) --- */
-        .theme-naila .cv-header {
-            background: linear-gradient(135deg, #6a1b9a, #4a148c);
-            color: white;
-            padding: 40px;
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-        .theme-naila .cv-badge { background: #ba68c8; color: #4a148c; }
-        .theme-naila h2, .theme-naila h3 { color: #6a1b9a; }
-        .theme-naila .cv-body { border-top: 5px solid #ba68c8; }
-
-        /* CV Common Layout */
-        .cv-header img {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid rgba(255,255,255,0.8);
-        }
-
-        .cv-header-info h1 {
-            font-size: 2rem;
-            margin-bottom: 5px;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .cv-badge {
-            display: inline-block;
-            padding: 5px 15px;
-            border-radius: 15px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-top: 8px;
-        }
-
-        .cv-body {
-            padding: 40px;
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 30px;
-        }
-
-        @media(max-width: 768px) {
-            .cv-body { grid-template-columns: 1fr; }
-            .cv-header { text-align: center; justify-content: center; }
-        }
-
-        .cv-column h3 {
-            font-size: 1.1rem;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 8px;
-            margin-bottom: 15px;
-            margin-top: 25px;
-        }
-
-        .cv-column h3:first-child {
-            margin-top: 0;
-        }
-
-        .cv-item {
-            margin-bottom: 15px;
-        }
-
-        .cv-item h4 {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: #333;
-        }
-
-        .cv-item span, .cv-item p {
-            font-size: 0.88rem;
-            color: #666;
-        }
-
-        .cv-list {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .cv-list li {
-            position: relative;
-            padding-left: 18px;
-            margin-bottom: 8px;
-            font-size: 0.88rem;
-            color: #555;
-        }
-
-        .cv-list li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: inherit;
-            font-weight: bold;
-        }
-
-        .contact-list {
-            list-style: none;
-            margin-top: 10px;
-        }
-
-        .contact-list li {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 0.88rem;
-            margin-bottom: 8px;
-            color: #555;
-            word-break: break-all;
-        }
-
-        .contact-list i {
-            width: 16px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px;
-            font-size: 0.85rem;
-            color: #888;
-        }
-    </style>
+    <!-- Hubungkan ke file CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -329,7 +20,7 @@
         <div class="profiles-container">
             <!-- Salwaa Card -->
             <div class="profile-card card-salwaa" onclick="showCV('salwaa')">
-                <img src="images_salwaa.jpeg" alt="Salwaa Salsabiila Ramadhaani" class="profile-img" onerror="this.src='https://via.placeholder.com/130?text=Salwaa'">
+                <img src="salwaa.jpg" alt="Salwaa Salsabiila Ramadhaani" class="profile-img" onerror="this.src='https://via.placeholder.com/130?text=Salwaa'">
                 <h3 class="profile-name">Salwaa Salsabiila R.</h3>
                 <p class="profile-role">Manajemen Pendidikan</p>
                 <button class="btn-view">Lihat CV <i class="fas fa-arrow-right"></i></button>
@@ -337,7 +28,7 @@
 
             <!-- Indah Card -->
             <div class="profile-card card-indah" onclick="showCV('indah')">
-                <img src="images_indah.jpeg" alt="Indah Aulia Puteri" class="profile-img" onerror="this.src='https://via.placeholder.com/130?text=Indah'">
+                <img src="indah.jpg" alt="Indah Aulia Puteri" class="profile-img" onerror="this.src='https://via.placeholder.com/130?text=Indah'">
                 <h3 class="profile-name">Indah Aulia Puteri</h3>
                 <p class="profile-role">Manajemen Pendidikan</p>
                 <button class="btn-view">Lihat CV <i class="fas fa-arrow-right"></i></button>
@@ -345,7 +36,7 @@
 
             <!-- Naila Card -->
             <div class="profile-card card-naila" onclick="showCV('naila')">
-                <img src="images_naila.jpeg" alt="Naila Nafisah" class="profile-img" onerror="this.src='https://via.placeholder.com/130?text=Naila'">
+                <img src="naila.jpg" alt="Naila Nafisah" class="profile-img" onerror="this.src='https://via.placeholder.com/130?text=Naila'">
                 <h3 class="profile-name">Naila Nafisah</h3>
                 <p class="profile-role">Manajemen Pendidikan</p>
                 <button class="btn-view">Lihat CV <i class="fas fa-arrow-right"></i></button>
@@ -362,7 +53,7 @@
         
         <div class="cv-container">
             <div class="cv-header">
-                <img src="images_salwaa.jpeg" alt="Salwaa" onerror="this.src='https://via.placeholder.com/140?text=Salwaa'">
+                <img src="salwaa.jpg" alt="Salwaa" onerror="this.src='https://via.placeholder.com/140?text=Salwaa'">
                 <div class="cv-header-info">
                     <h1>Salwaa Salsabiila Ramadhaani</h1>
                     <span class="cv-badge">Manajemen Pendidikan</span>
@@ -451,7 +142,7 @@
         
         <div class="cv-container">
             <div class="cv-header">
-                <img src="images_indah.jpeg" alt="Indah" onerror="this.src='https://via.placeholder.com/140?text=Indah'">
+                <img src="indah.jpg" alt="Indah" onerror="this.src='https://via.placeholder.com/140?text=Indah'">
                 <div class="cv-header-info">
                     <h1>Indah Aulia Puteri</h1>
                     <span class="cv-badge">Manajemen Pendidikan</span>
@@ -529,7 +220,7 @@
         
         <div class="cv-container">
             <div class="cv-header">
-                <img src="images_naila.jpeg" alt="Naila" onerror="this.src='https://via.placeholder.com/140?text=Naila'">
+                <img src="naila.jpg" alt="Naila" onerror="this.src='https://via.placeholder.com/140?text=Naila'">
                 <div class="cv-header-info">
                     <h1>Naila Nafisah</h1>
                     <span class="cv-badge">Manajemen Pendidikan</span>
@@ -609,31 +300,7 @@
         </div>
     </section>
 
-    <!-- JAVASCRIPT FOR INTERACTIVITY -->
-    <script>
-        function showCV(person) {
-            document.getElementById('beranda').style.display = 'none';
-            document.getElementById('cv-salwaa').style.display = 'none';
-            document.getElementById('cv-indah').style.display = 'none';
-            document.getElementById('cv-naila').style.display = 'none';
-
-            if(person === 'salwaa') {
-                document.getElementById('cv-salwaa').style.display = 'block';
-            } else if(person === 'indah') {
-                document.getElementById('cv-indah').style.display = 'block';
-            } else if(person === 'naila') {
-                document.getElementById('cv-naila').style.display = 'block';
-            }
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function goHome() {
-            document.getElementById('cv-salwaa').style.display = 'none';
-            document.getElementById('cv-indah').style.display = 'none';
-            document.getElementById('cv-naila').style.display = 'none';
-            document.getElementById('beranda').style.display = 'flex';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    </script>
+    <!-- Hubungkan ke file JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
